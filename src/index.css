@@ -41,7 +41,11 @@ select{
   border-color:rgb(130, 59, 8);
 }
  
-
+#navbarNav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 /* button {
   border-radius: 8px;
