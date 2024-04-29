@@ -1,33 +1,26 @@
-// const initialState = {
-//     cakes: [],
-//     loading: false, //api track 
-//     error: null
-//   };
-  
-//   const getAllCakesReducer = (state = initialState, action) => {
-//     switch (action.type) {
-//       case 'GET_CAKES_REQUEST':
-//         return {
-//           ...state,
-//           loading: true,
-//           error: null
-//         };
-//       case 'GET_CAKES_SUCCESS':
-//         return {
-//           ...state,
-//           loading: false,
-//           cakes: action.payload,
-//           error: null // Reset error to null on success
-//         };
-//       case 'GET_CAKES_FAILED':
-//         return {
-//           ...state,
-//           loading: false,
-//           error: action.payload
-//         };
-//       default:
-//         return state;
-//     }
-//   };
-  
-//   export default getAllCakesReducer;
+import { createSlice } from "@reduxjs/toolkit";
+import { getAllCakes } from "../actions/cakeActions";
+
+// Slice Reducer
+const cakeSlice = createSlice({
+  name: "cakes",
+  initialState: {
+    cakes: [],
+    loading: false
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getAllCakes.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getAllCakes.fulfilled, (state, action) => {
+        state.loading = false;
+        state.cakes = action.payload;
+      })
+      .addCase(getAllCakes.rejected, (state) => {
+        state.loading = false;
+      });
+  }
+});
+
+export default cakeSlice.reducer;

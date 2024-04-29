@@ -22,14 +22,14 @@ function Homescreen() {
 
   return (
     <div>
-      <div className="row">
+      <div className="row justify-content-center">
         {loading ? (
           <h1>Loading...</h1>
         ) : error ? (
           <h1>Something went wrong: {error.message}</h1>
         ) : cakes && cakes.length > 0 ? (
           cakes.map((cake, index) => (
-            <div className="col-md-4" key={index}>
+            <div className="col-md-4 " key={index}>
               <Cake cake={cake} />
             </div>
           ))

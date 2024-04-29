@@ -38,6 +38,11 @@ function Cake({ cake }) {
     return `₹ ${totalPrice}`;
   };
 
+function addtocart()
+{}
+
+
+
   return (
     <div style={{margin: "70px"}} className="shadow p-3 mb-5 bg-white rounded">
       <h1>{cake.Name}</h1>
@@ -87,7 +92,7 @@ function Cake({ cake }) {
           <h1 className="border border-dark mt-2"> Price: {calculatePrice()} </h1>
         </div>
         <div className="m-1 w-100">
-          <button className="btn btn btn-danger"> ADD TO CART</button>
+          <button className="btn btn btn-danger" onclick={addtocart}> ADD TO CART</button>
         </div>
       </div>
     </div>
